@@ -1,8 +1,12 @@
 .footer-container {
   height: 40px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: yellow;
   color: #000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
