@@ -1,7 +1,9 @@
+import './home.css'
+
 export const Home: React.FC = () => {
   return(
-    <div>
+    <section className='home-container'>
       <h1>Página Home</h1>
-    </div>
+    </section>
   )
 }
