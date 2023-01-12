@@ -1,0 +1,32 @@
+.header-container {
+  background-color: yellow;
+  height: 70px;
+  margin-bottom: 30px;
+}
+
+.header-content {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.login-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login-header a {
+  margin-right: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.login-header:hover {
+  border-left: 1px solid;
+}
