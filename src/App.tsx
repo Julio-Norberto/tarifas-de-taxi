@@ -1,10 +1,12 @@
+import { BrowserRouter } from 'react-router-dom'
+import { AppRoutes } from './routes/AppRoutes'
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <h1>ola, mundo</h1>
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
