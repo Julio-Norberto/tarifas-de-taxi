@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
         <a href="/"><Taxi size={32} color='#000' /></a>
 
         <div className='login-header'>
-          <a href="">Login</a>
+          <a href="/login">Login</a>
           <UserCircle size={22} color='#000' />
         </div>
       </div>
