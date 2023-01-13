@@ -2,13 +2,13 @@ import { useState, useEffect, EffectCallback } from 'react'
 import axios from 'axios'
 import './home.css'
 
-interface teste {
+interface IPricesInfo {
   destination: string
   price: string
 }
 
 export const Home: React.FC = () => {
-  const [pricesInfo, setPricesInfo] = useState<teste[]>()
+  const [pricesInfo, setPricesInfo] = useState<IPricesInfo[]>()
 
   useEffect(() => {
     async function fetchData() {
