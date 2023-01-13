@@ -26,22 +26,25 @@ export const Home: React.FC = () => {
   return(
     <section className='home-container'>
       <h1>Tabela de preços</h1>
-
       <div>
-        <table border={1}>
-          <thead>
-            <th className='padd' align='left'>Destino</th>
-            <th>Preço</th>
-          </thead>
-          {pricesInfo?.map((princeInfo, index) => (
-            <tbody>
-              <tr style={{ backgroundColor: index % 2 == 0 ? '#ddd' : '' }}>
-                <td height={50}>{pricesInfo[index].destination}</td>
-                <td className='esquerda'>R$ {pricesInfo[index].price}</td>
+        {pricesInfo ? (
+          <table border={1}>
+            <thead>
+              <tr>
+                <th className='padd' align='left'>Destino</th>
+                <th>Preço</th>
               </tr>
-            </tbody>
-          ))}
-        </table>
+            </thead>
+            {pricesInfo?.map((princeInfo, index) => (
+              <tbody key={index}>
+                <tr style={{ backgroundColor: index % 2 == 0 ? '#ddd' : '' }}>
+                  <td height={50}>{pricesInfo[index].destination}</td>
+                  <td className='esquerda'>R$ {pricesInfo[index].price}</td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
+        ) : 'Ainda não existem dados cadastrados =('}
       </div>
     </section>
   )
