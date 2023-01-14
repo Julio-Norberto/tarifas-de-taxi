@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { Trash, Pencil } from 'phosphor-react'
+import { FormRegister } from "../../components/FormRegister"
 import axios from 'axios'
 
 interface IPricesInfo {
@@ -25,6 +27,8 @@ export const Tables: React.FC = () => {
   return(
     <section className='home-container'>
       <h1>Cadastro de dados</h1>
+      <FormRegister />
+
       <div>
         {pricesInfo ? (
           <table border={1}>
@@ -32,6 +36,7 @@ export const Tables: React.FC = () => {
               <tr>
                 <th className='padd' align='left'>Destino</th>
                 <th>Preço</th>
+                <th>Ações</th>
               </tr>
             </thead>
             {pricesInfo?.map((princeInfo, index) => (
@@ -39,6 +44,7 @@ export const Tables: React.FC = () => {
                 <tr style={{ backgroundColor: index % 2 == 0 ? '#ddd' : '' }}>
                   <td height={50}>{pricesInfo[index].destination}</td>
                   <td className='esquerda'>R$ {pricesInfo[index].price}</td>
+                  <td> <button> <Pencil size={20} color='blue' /> </button> <button> <Trash size={20} color='red' /> </button> </td>
                 </tr>
               </tbody>
             ))}
