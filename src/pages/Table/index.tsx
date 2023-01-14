@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Trash, Pencil } from 'phosphor-react'
 import { FormRegister } from "../../components/FormRegister"
 import axios from 'axios'
+import './tables.css'
 
 interface IPricesInfo {
   destination: string
@@ -26,7 +27,7 @@ export const Tables: React.FC = () => {
 
   return(
     <section className='home-container'>
-      <h1>Cadastro de dados</h1>
+      <h1 className="title-table">Cadastro de dados</h1>
       <FormRegister />
 
       <div>

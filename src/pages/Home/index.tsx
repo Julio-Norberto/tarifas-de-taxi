@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
 
   return(
     <section className='home-container'>
-      <h1>Tabela de preços</h1>
+      <h1 className='title'>Tabela de preços</h1>
       <div>
         {pricesInfo ? (
           <table border={1}>

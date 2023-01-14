@@ -1,0 +1,33 @@
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 500px;
+  height: 100px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.forms input {
+  height: 25px;
+  width: 200px;
+  margin-top: 15px;
+}
+
+.btn-form {
+  margin-bottom: 20px;
+  width: 500px;
+  height: 30px;
+  background-color: yellow;
+  color: black;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-form:hover {
+  cursor: pointer;
+}

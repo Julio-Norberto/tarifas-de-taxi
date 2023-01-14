@@ -1,22 +1,36 @@
+import axios from 'axios'
+import { SetStateAction, useState } from 'react'
+import './formRegister.css'
+
 export const FormRegister: React.FC = () => {
+  const [destination, setDestination] = useState()
+  const [price, setPrice] = useState()
+
+  function submitValues() {
+    axios.post('http://localhost:3000/api/createPrice', {
+      destination,
+      price,
+    }).then(() => alert('Cadastro feito com sucesso'))
+  }
+
   return(
     <div>
-      <form action="" method="post">
+      <form action="/tables">
 
-        <div>
+        <div className="form-container">
 
-          <div>
-            <label>Insira o Destino</label>
-            <input type="text" />
+          <div className="forms">
+            <label htmlFor='destination' >Insira o Destino</label>
+            <input onChange={(e: any) => setDestination(e.target.value)} type="text" name='destination' placeholder='destino...' />
           </div>
 
-          <div>
-            <label>Insira o preço (R$)</label>
-            <input type="text" />
+          <div className="forms">
+            <label htmlFor='price' >Insira o preço (R$)</label>
+            <input onChange={(e: any) => setPrice(e.target.value)} type="text" name='price' placeholder='preço...' />
           </div>
 
         </div>
-        <input type="submit" value='Cadastrar' />
+        <input onClick={submitValues} className='btn-form' type="submit" value='Cadastrar' />
 
       </form>
     </div>
