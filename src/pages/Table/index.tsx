@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react"
 import { Trash, Pencil } from 'phosphor-react'
 import { FormRegister } from "../../components/FormRegister"
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './tables.css'
 
 interface IPricesInfo {
+  _id: string
   destination: string
   price: string
 }
 
 export const Tables: React.FC = () => {
   const [pricesInfo, setPricesInfo] = useState<IPricesInfo[]>()
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function fetchData() {
@@ -24,6 +27,18 @@ export const Tables: React.FC = () => {
     fetchData()
 
   }, [])
+
+  function handleDelete(index: number) {
+    if(pricesInfo) {
+      const id = pricesInfo[index]._id
+      axios.delete(`http://localhost:3000/api/prices/remove/${id}`)
+      .then(() => {
+        alert('Dado deletado com sucesso!')
+        navigate(0)
+
+      }).catch((err) => console.log(err))
+    }
+  }
 
   return(
     <section className='home-container'>
@@ -45,7 +60,10 @@ export const Tables: React.FC = () => {
                 <tr style={{ backgroundColor: index % 2 == 0 ? '#ddd' : '' }}>
                   <td height={50}>{pricesInfo[index].destination}</td>
                   <td className='esquerda'>R$ {pricesInfo[index].price}</td>
-                  <td> <button> <Pencil size={20} color='blue' /> </button> <button> <Trash size={20} color='red' /> </button> </td>
+                  <td>
+                    <button> <Pencil size={20} color='blue' /> </button>
+                    <button onClick={() => handleDelete(index)} > <Trash size={20} color='red' /> </button>
+                  </td>
                 </tr>
               </tbody>
             ))}
