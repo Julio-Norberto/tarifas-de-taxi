@@ -14,6 +14,7 @@ interface IPricesInfo {
 
 export const Tables: React.FC = () => {
   const [pricesInfo, setPricesInfo] = useState<IPricesInfo[]>()
+  const [id, setId] = useState<string | undefined>()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -41,8 +42,9 @@ export const Tables: React.FC = () => {
     }
   }
 
-  function hiddeOrShowModal(display: any) {
+  function hiddeOrShowModal(display: boolean, index: number) {
     const modal = document.querySelector('#modal')
+    pricesInfo ? setId(pricesInfo[index]._id) : ''
     if(display) {
       modal?.classList.remove('hide')
     }
@@ -50,7 +52,7 @@ export const Tables: React.FC = () => {
 
   return(
     <section className='home-container teste'>
-      <Modal />
+      <Modal id={id} />
       <h1 className="title-table">Cadastro de dados</h1>
       <FormRegister />
 
@@ -70,7 +72,7 @@ export const Tables: React.FC = () => {
                   <td height={50}>{pricesInfo[index].destination}</td>
                   <td className='esquerda'>R$ {pricesInfo[index].price}</td>
                   <td align="center">
-                    <button onClick={hiddeOrShowModal} > <Pencil size={20} color='blue' /> </button>
+                    <button onClick={() => hiddeOrShowModal(true, index)} > <Pencil size={20} color='blue' /> </button>
                     <button onClick={() => handleDelete(index)} > <Trash size={20} color='red' /> </button>
                   </td>
                 </tr>

@@ -1,7 +1,11 @@
 import { FormModal } from '../FormModal'
 import './modal.css'
 
-export const Modal = () => {
+type ModalProps = {
+  id: string | undefined
+}
+
+export const Modal: React.FC<ModalProps> = ({id}: ModalProps) => {
   function closeModal() {
     const modal: Element | null = document.querySelector('#modal')
     modal?.classList.add('hide')
@@ -15,7 +19,7 @@ export const Modal = () => {
 
       <div className="modal">
           <h2>Editar dados</h2>
-          <FormModal />
+          <FormModal id={id} />
       </div>
     </div>
   )
