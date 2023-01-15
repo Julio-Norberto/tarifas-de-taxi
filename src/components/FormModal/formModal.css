@@ -13,16 +13,12 @@ form input {
 }
 
 .form input[type="submit"] {
-  background-color: #61dafb;
-  border: 1px solid #61dafb;
-  color: black;
+  background-color: #000;
+  border: 1px solid #000;
+  color: white;
   transition: .5s;
   cursor: pointer;
-}
-
-.form input[type="submit"]:hover {
-  background-color: #fff;
-  border-color: #282c34;
+  margin-bottom: 5px;
 }
 
 .input_container {
@@ -34,4 +30,15 @@ form input {
 .input_container label {
   font-weight: bold;
   margin-bottom: .4em;
+}
+
+.btn-close {
+  height: 25px;
+  background-color: red;
+  color: #fff;
+  border: none;
+}
+
+.btn-close:hover {
+  cursor: pointer;
 }

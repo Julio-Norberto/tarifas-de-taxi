@@ -14,7 +14,7 @@ export const Modal = () => {
       </div>
 
       <div className="modal">
-          <h2>Texto Modal</h2>
+          <h2>Editar dados</h2>
           <FormModal />
       </div>
     </div>

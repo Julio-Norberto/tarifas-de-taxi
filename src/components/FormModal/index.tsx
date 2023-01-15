@@ -1,6 +1,11 @@
 import './formModal.css'
 
 export const FormModal: React.FC = () => {
+  function closeModal() {
+    const modal = document.querySelector('#modal')
+    modal?.classList.add('hide')
+  }
+
   return(
     <form className="form">
 
@@ -14,7 +19,7 @@ export const FormModal: React.FC = () => {
           <input type="text" name='price' placeholder='Novo preço...' />
       </div>
       <input type="submit" value='Salvar' />
-
+      <button className='btn-close' onClick={closeModal} >Cancelar</button>
     </form>
   )
 }

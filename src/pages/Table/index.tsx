@@ -4,6 +4,7 @@ import { FormRegister } from "../../components/FormRegister"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './tables.css'
+import { Modal } from "../../components/Modal"
 
 interface IPricesInfo {
   _id: string
@@ -40,8 +41,16 @@ export const Tables: React.FC = () => {
     }
   }
 
+  function hiddeOrShowModal(display: any) {
+    const modal = document.querySelector('#modal')
+    if(display) {
+      modal?.classList.remove('hide')
+    }
+  }
+
   return(
-    <section className='home-container'>
+    <section className='home-container teste'>
+      <Modal />
       <h1 className="title-table">Cadastro de dados</h1>
       <FormRegister />
 
@@ -61,7 +70,7 @@ export const Tables: React.FC = () => {
                   <td height={50}>{pricesInfo[index].destination}</td>
                   <td className='esquerda'>R$ {pricesInfo[index].price}</td>
                   <td align="center">
-                    <button> <Pencil size={20} color='blue' /> </button>
+                    <button onClick={hiddeOrShowModal} > <Pencil size={20} color='blue' /> </button>
                     <button onClick={() => handleDelete(index)} > <Trash size={20} color='red' /> </button>
                   </td>
                 </tr>
