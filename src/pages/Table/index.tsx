@@ -60,7 +60,7 @@ export const Tables: React.FC = () => {
                 <tr style={{ backgroundColor: index % 2 == 0 ? '#ddd' : '' }}>
                   <td height={50}>{pricesInfo[index].destination}</td>
                   <td className='esquerda'>R$ {pricesInfo[index].price}</td>
-                  <td>
+                  <td align="center">
                     <button> <Pencil size={20} color='blue' /> </button>
                     <button onClick={() => handleDelete(index)} > <Trash size={20} color='red' /> </button>
                   </td>
