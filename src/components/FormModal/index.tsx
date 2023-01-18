@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useFlashMessage } from '../../hooks/UseFlashMessage'
 import axios from 'axios'
 import './formModal.css'
 
@@ -9,6 +10,7 @@ type FormModalProps = {
 export const FormModal: React.FC<FormModalProps> = ({id}: FormModalProps) => {
   const [destination, setDestination] = useState()
   const [price, setPrice] = useState()
+  const { setFlashMessage } = useFlashMessage()
 
   useEffect(() => {
     async function handleSearchData() {
@@ -31,11 +33,18 @@ export const FormModal: React.FC<FormModalProps> = ({id}: FormModalProps) => {
     modal?.classList.add('hide')
   }
 
-  function submitValues() {
-    axios.put(`http://localhost:3000/api/prices/${id}`, {
+  async function submitValues() {
+    const token = localStorage.getItem('token')
+
+    await axios.patch(`http://localhost:3000/api/prices/${id}`, {
       destination,
       price,
-    }).then(() => alert('Dados alterados com sucesso!')).catch((err) => console.log(err))
+    }, {
+      headers: {
+        authorization: `Bearer ${JSON.parse(token!)}`
+      }
+    }).then(() => setFlashMessage('Dado editado com sucesso!', 'sucess')).catch((err) => console.log(err))
+
   }
 
   return(

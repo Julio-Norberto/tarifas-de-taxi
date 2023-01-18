@@ -1,16 +1,26 @@
 import axios from 'axios'
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
+import { useFlashMessage } from '../../hooks/UseFlashMessage'
 import './formRegister.css'
 
 export const FormRegister: React.FC = () => {
   const [destination, setDestination] = useState()
   const [price, setPrice] = useState()
+  const { setFlashMessage } = useFlashMessage()
 
-  function submitValues() {
-    axios.post('http://localhost:3000/api/createPrice', {
+  async function submitValues() {
+    const token = localStorage.getItem('token')
+
+    await axios.post('http://localhost:3000/api/createPrice', {
       destination,
       price,
-    }).then(() => alert('Cadastro feito com sucesso'))
+    }, {
+      headers: {
+        authorization: `Bearer ${JSON.parse(token!)}`
+      }
+    }).then(() => {
+
+    }).catch((err) => console.log(err))
   }
 
   return(

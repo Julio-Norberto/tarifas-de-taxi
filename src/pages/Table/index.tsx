@@ -2,9 +2,12 @@ import { useEffect, useState } from "react"
 import { Trash, Pencil } from 'phosphor-react'
 import { FormRegister } from "../../components/FormRegister"
 import { useNavigate } from 'react-router-dom'
+import { Modal } from "../../components/Modal"
+
 import axios from 'axios'
 import './tables.css'
-import { Modal } from "../../components/Modal"
+
+import { useFlashMessage } from '../../hooks/UseFlashMessage.js'
 
 interface IPricesInfo {
   _id: string
@@ -16,6 +19,7 @@ export const Tables: React.FC = () => {
   const [pricesInfo, setPricesInfo] = useState<IPricesInfo[]>()
   const [id, setId] = useState<string | undefined>()
   const navigate = useNavigate()
+  const { setFlashMessage } = useFlashMessage()
 
   useEffect(() => {
     async function fetchData() {
@@ -30,14 +34,18 @@ export const Tables: React.FC = () => {
 
   }, [])
 
-  function handleDelete(index: number) {
+  async function handleDelete(index: number) {
     if(pricesInfo) {
       const id = pricesInfo[index]._id
-      axios.delete(`http://localhost:3000/api/prices/remove/${id}`)
-      .then(() => {
-        alert('Dado deletado com sucesso!')
-        navigate(0)
+      const token = localStorage.getItem('token')
 
+      await axios.delete(`http://localhost:3000/api/prices/remove/${id}`, {
+        headers: {
+          authorization: `Bearer ${JSON.parse(token!)}`
+        }
+      })
+      .then(() => {
+        navigate(0)
       }).catch((err) => console.log(err))
     }
   }

@@ -1,21 +1,17 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { useState, useContext } from 'react'
 import { Envelope, Key } from 'phosphor-react'
+import { Context } from '../../context/UserContext'
+
 import './login.css'
 
 export const Login: React.FC = () => {
   const [login, setLogin] = useState()
   const [password, setPassword] = useState()
-  const navigate = useNavigate()
+
+  const { loginUser } = useContext(Context)
 
   async function handleLogin() {
-    await axios.post('http://localhost:3000/api/login', {
-    login,
-    password,
-    }).then(() => {
-      navigate('/tables')
-    }).catch((err) => console.log(err))
+    loginUser(login!, password!)
   }
 
   return (
