@@ -13,7 +13,7 @@ export const AppRoutes: React.FC = () => {
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/login' element={ <Login /> } />
-        <Route path='/tables' element={ authenticated ? <Tables /> : <Home /> } />
+        <Route path='/tables' element={ authenticated ? <Tables /> : <Login /> } />
       </Routes>
     </div>
   )

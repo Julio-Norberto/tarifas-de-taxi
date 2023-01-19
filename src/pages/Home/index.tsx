@@ -1,4 +1,5 @@
-import { useState, useEffect, EffectCallback } from 'react'
+import { useState, useEffect } from 'react'
+import { useAuth } from '../../hooks/useAuth'
 import axios from 'axios'
 import './home.css'
 
@@ -9,6 +10,7 @@ interface IPricesInfo {
 
 export const Home: React.FC = () => {
   const [pricesInfo, setPricesInfo] = useState<IPricesInfo[]>()
+  const { authenticated } = useAuth()
 
   useEffect(() => {
     async function fetchData() {

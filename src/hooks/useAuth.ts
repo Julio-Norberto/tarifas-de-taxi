@@ -47,7 +47,8 @@ export const useAuth = () => {
 
     localStorage.setItem('token', JSON.stringify(data.token))
 
-    navigate('/tables')
+    //navigate('/tables')
+    navigate(0)
   }
 
   return { authenticated, loginUser }
