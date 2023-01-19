@@ -46,6 +46,7 @@ export const useTables = () => {
     }
 
     setFlashMessage('Dado cadastrado com sucesso', 'sucess')
+    navigate(0)
 
   }
 
