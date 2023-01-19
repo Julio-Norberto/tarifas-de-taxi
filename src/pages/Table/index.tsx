@@ -48,6 +48,8 @@ export const Tables: React.FC = () => {
         navigate(0)
       }).catch((err) => console.log(err))
     }
+
+    setFlashMessage('Dado deletado com sucesso!', 'sucess')
   }
 
   function hiddeOrShowModal(display: boolean, index: number) {

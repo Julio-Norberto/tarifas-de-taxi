@@ -1,31 +1,16 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { useFlashMessage } from '../../hooks/UseFlashMessage'
+import { useTables } from '../../hooks/useTables'
 import './formRegister.css'
 
 export const FormRegister: React.FC = () => {
   const [destination, setDestination] = useState()
   const [price, setPrice] = useState()
-  const { setFlashMessage } = useFlashMessage()
-
-  async function submitValues() {
-    const token = localStorage.getItem('token')
-
-    await axios.post('http://localhost:3000/api/createPrice', {
-      destination,
-      price,
-    }, {
-      headers: {
-        authorization: `Bearer ${JSON.parse(token!)}`
-      }
-    }).then(() => {
-
-    }).catch((err) => console.log(err))
-  }
+  const { resgiterValues } = useTables()
 
   return(
     <div>
-      <form action="/tables">
+      <form>
 
         <div className="form-container">
 
@@ -40,7 +25,7 @@ export const FormRegister: React.FC = () => {
           </div>
 
         </div>
-        <input onClick={submitValues} className='btn-form' type="submit" value='Cadastrar' />
+        <input onClick={() => resgiterValues(destination!, price!)} className='btn-form' type="button" value='Cadastrar' />
 
       </form>
     </div>
