@@ -65,7 +65,7 @@ export const Tables: React.FC = () => {
       <FormRegister />
 
       <div>
-        {pricesInfo ? (
+        {pricesInfo?.length !== 0 ? (
           <table border={1}>
             <thead>
               <tr>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useAuth } from '../../hooks/useAuth'
 import axios from 'axios'
 import './home.css'
 
@@ -10,7 +9,6 @@ interface IPricesInfo {
 
 export const Home: React.FC = () => {
   const [pricesInfo, setPricesInfo] = useState<IPricesInfo[]>()
-  const { authenticated } = useAuth()
 
   useEffect(() => {
     async function fetchData() {
@@ -29,7 +27,7 @@ export const Home: React.FC = () => {
     <section className='home-container'>
       <h1 className='title'>Tabela de preços</h1>
       <div>
-        {pricesInfo ? (
+        {pricesInfo?.length !== 0 ? (
           <table border={1}>
             <thead>
               <tr>
