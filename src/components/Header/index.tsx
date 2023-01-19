@@ -3,7 +3,7 @@ import { useAuth } from '../../hooks/useAuth'
 import './header.css'
 
 export const Header: React.FC = () => {
-  const { authenticated } = useAuth()
+  const { authenticated, logout } = useAuth()
 
   return(
     <header className="header-container">
@@ -12,13 +12,13 @@ export const Header: React.FC = () => {
 
         <div className='login-header'>
           <a href="/login">Login</a>
-          <UserCircle size={22} color='#000' />
 
           {authenticated ? (
             <>
-              <a href="">Tabelas</a>
+              <a href="/tables">Tabelas</a>
 
-              <a href="">Sair</a>
+              <a href=""> <li style={{ listStyle: 'none' }} onClick={logout}>Sair</li> </a>
+
             </>
           ) : ''}
 

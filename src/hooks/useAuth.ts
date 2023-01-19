@@ -43,14 +43,29 @@ export const useAuth = () => {
   }
 
   async function authUser(data: any) {
+    let msgText = "Usuário logado com sucesso!"
+    let msgType = 'sucess'
+
     setAuthenticated(true)
 
     localStorage.setItem('token', JSON.stringify(data.token))
 
-    //navigate('/tables')
+    navigate('/tables')
     navigate(0)
   }
 
-  return { authenticated, loginUser }
+  function logout() {
+    const msgText = 'Logout feito com sucesso!'
+    const msgType = 'sucess'
+
+    setAuthenticated(false)
+    localStorage.removeItem('token')
+    api.defaults.headers.Authorization = null
+    navigate('/')
+
+    setFlashMessage(msgText, msgType)
+  }
+
+  return { authenticated, loginUser, logout }
 
 }
