@@ -68,7 +68,7 @@ export const Tables: React.FC = () => {
 
       <div>
         {pricesInfo?.length !== 0 ? (
-          <table border={1}>
+          <table className="table-princ" border={1}>
             <thead>
               <tr>
                 <th className='padd' align='left'>Destino</th>
