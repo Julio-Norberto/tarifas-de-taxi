@@ -11,7 +11,6 @@ export const Header: React.FC = () => {
         <a href="/"><Taxi size={32} color='#000' /></a>
 
         <div className='login-header'>
-          <a href="/login">Login</a>
 
           {authenticated ? (
             <>
@@ -20,7 +19,7 @@ export const Header: React.FC = () => {
               <a href=""> <li style={{ listStyle: 'none' }} onClick={logout}>Sair</li> </a>
 
             </>
-          ) : ''}
+          ) : <a href="/login">Login</a>}
 
         </div>
       </div>
