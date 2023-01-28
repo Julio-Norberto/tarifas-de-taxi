@@ -1,5 +1,6 @@
-import { Taxi, UserCircle } from 'phosphor-react'
+import { Taxi } from 'phosphor-react'
 import { useAuth } from '../../hooks/useAuth'
+import { Link } from 'react-router-dom'
 import './header.css'
 
 export const Header: React.FC = () => {
@@ -8,18 +9,18 @@ export const Header: React.FC = () => {
   return(
     <header className="header-container">
       <div className='header-content'>
-        <a href="/"><Taxi size={32} color='#000' /></a>
+        <Link to="/"><Taxi size={32} color='#000' /></Link>
 
         <div className='login-header'>
 
           {authenticated ? (
             <>
-              <a href="/tables">Tabelas</a>
+              <Link to="/tables">Tabelas</Link>
 
-              <a href=""> <li style={{ listStyle: 'none' }} onClick={logout}>Sair</li> </a>
+              <Link to=""> <li style={{ listStyle: 'none' }} onClick={logout}>Sair</li> </Link>
 
             </>
-          ) : <a href="/login">Login</a>}
+          ) : <Link to="/login">Login</Link>}
 
         </div>
       </div>
