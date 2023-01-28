@@ -12,7 +12,7 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     async function fetchData() {
-      await axios.get('http://localhost:3000/api/prices')
+      await axios.get('https://tarifas-de-taxi-backend.vercel.app/prices')
       .then((res) => {
         setPricesInfo(res.data)
         console.log(res.data)

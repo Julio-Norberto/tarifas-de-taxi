@@ -5,7 +5,7 @@ import { useFlashMessage } from './UseFlashMessage.js'
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: "https://tarifas-de-taxi-backend.vercel.app"
 })
 
 export const useAuth = () => {
@@ -26,7 +26,7 @@ export const useAuth = () => {
     let msgType = 'sucess'
 
     try {
-      const data = await axios.post('http://localhost:3000/api/login', {
+      const data = await axios.post('https://tarifas-de-taxi-backend.vercel.app/login', {
         login,
         password
       }).then((response) => {

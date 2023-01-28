@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useState } from 'react'
 import { useTables } from '../../hooks/useTables'
 import './formRegister.css'

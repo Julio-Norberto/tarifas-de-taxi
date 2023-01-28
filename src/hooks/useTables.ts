@@ -12,7 +12,7 @@ export const useTables = () => {
     const token = localStorage.getItem('token')
 
     try {
-      await axios.patch(`http://localhost:3000/api/prices/${id}`, {
+      await axios.patch(`https://tarifas-de-taxi-backend.vercel.app/prices/${id}`, {
       destination,
       price,
       }, {
@@ -33,7 +33,7 @@ export const useTables = () => {
     }
 
     try {
-      await axios.post('http://localhost:3000/api/createPrice', {
+      await axios.post('https://tarifas-de-taxi-backend.vercel.app/createPrice', {
         destination,
         price,
       }, {

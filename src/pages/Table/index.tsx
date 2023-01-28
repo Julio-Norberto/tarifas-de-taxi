@@ -23,7 +23,7 @@ export const Tables: React.FC = () => {
 
   useEffect(() => {
     async function fetchData() {
-      await axios.get('http://localhost:3000/api/prices')
+      await axios.get('https://tarifas-de-taxi-backend.vercel.app/prices')
       .then((res) => {
         setPricesInfo(res.data)
         console.log(res.data)
@@ -39,7 +39,7 @@ export const Tables: React.FC = () => {
       const id = pricesInfo[index]._id
       const token = localStorage.getItem('token')
 
-      await axios.delete(`http://localhost:3000/api/prices/remove/${id}`, {
+      await axios.delete(`https://tarifas-de-taxi-backend.vercel.app/prices/remove/${id}`, {
         headers: {
           authorization: `Bearer ${JSON.parse(token!)}`
         }

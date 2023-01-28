@@ -16,7 +16,7 @@ export const FormModal: React.FC<FormModalProps> = ({id}: FormModalProps) => {
   useEffect(() => {
     async function handleSearchData() {
       if(id) {
-        await axios.get(`http://localhost:3000/api/prices/${id}`)
+        await axios.get(`https://tarifas-de-taxi-backend.vercel.app/${id}`)
           .then((res) => {
             setDestination(res.data.destination)
             setPrice(res.data.price)
