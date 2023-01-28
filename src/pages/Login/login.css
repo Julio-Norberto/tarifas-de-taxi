@@ -96,10 +96,14 @@
 @media (max-width: 500px) {
   .form-card {
     width: 340px;
-    height: 460px;
+    height: 430px;
   }
 
   .div-input input {
     width: 240px;
+  }
+
+  .btn-register-login {
+    width: 230px;
   }
 }

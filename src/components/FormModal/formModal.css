@@ -44,3 +44,9 @@ form input {
 .btn-close:hover {
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .btn-close {
+    width: 298px;
+  }
+}
