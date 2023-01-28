@@ -10,6 +10,7 @@
 .forms {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .forms input {
@@ -30,4 +31,23 @@
 
 .btn-form:hover {
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .form-container {
+    flex-direction: column;
+    margin-bottom: 100px;
+    margin-top: 20px;
+  }
+
+  .button-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-form {
+    width: 230px;
+    margin-bottom: 50px;
+  }
 }

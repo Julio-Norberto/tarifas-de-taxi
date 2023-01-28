@@ -24,8 +24,10 @@ export const FormRegister: React.FC = () => {
           </div>
 
         </div>
-        <input onClick={() => resgiterValues(destination!, price!)} className='btn-form' type="button" value='Cadastrar' />
 
+        <div className='button-form'>
+          <input onClick={() => resgiterValues(destination!, price!)} className='btn-form' type="button" value='Cadastrar' />
+        </div>
       </form>
     </div>
   )

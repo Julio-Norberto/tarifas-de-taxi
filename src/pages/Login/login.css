@@ -92,3 +92,14 @@
     margin-top: 100px;
   }
 }
+
+@media (max-width: 500px) {
+  .form-card {
+    width: 340px;
+    height: 460px;
+  }
+
+  .div-input input {
+    width: 240px;
+  }
+}

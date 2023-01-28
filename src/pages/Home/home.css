@@ -32,3 +32,9 @@ th {
 th.padd {
   padding: 5px;
 }
+
+@media (max-width: 500px) {
+  table {
+    width: 300px;
+  }
+}

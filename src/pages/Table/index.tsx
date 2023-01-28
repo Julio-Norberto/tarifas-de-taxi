@@ -82,7 +82,7 @@ export const Tables: React.FC = () => {
                   <td height={50}>{pricesInfo[index].destination}</td>
                   <td className='esquerda'>R$ {pricesInfo[index].price}</td>
                   <td align="center">
-                    <button onClick={() => hiddeOrShowModal(true, index)} > <Pencil size={20} color='blue' /> </button>
+                    <button style={{ marginRight: '6px' }} onClick={() => hiddeOrShowModal(true, index)} > <Pencil size={20} color='blue' /> </button>
                     <button onClick={() => handleDelete(index)} > <Trash size={20} color='red' /> </button>
                   </td>
                 </tr>

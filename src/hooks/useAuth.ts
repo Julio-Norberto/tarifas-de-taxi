@@ -51,6 +51,8 @@ export const useAuth = () => {
     localStorage.setItem('token', JSON.stringify(data.token))
 
     navigate('/tables')
+    navigate(0)
+    navigate('/tables')
   }
 
   function logout() {
