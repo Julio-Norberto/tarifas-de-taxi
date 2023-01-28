@@ -35,6 +35,7 @@ export const FormModal: React.FC<FormModalProps> = ({id}: FormModalProps) => {
   }
 
   return(
+    <>
     <form className="form">
 
       <div className="input_container">
@@ -47,7 +48,9 @@ export const FormModal: React.FC<FormModalProps> = ({id}: FormModalProps) => {
           <input value={price ? price : ''} onChange={(e:any) => setPrice(e.target.value)} type="text" name='price' placeholder='Novo preço...' />
       </div>
       <input onClick={() => updateTableData(destination!, price!, id!)} type="submit" value='Salvar' />
-      <button className='btn-close' onClick={closeModal} >Cancelar</button>
+
     </form>
+    <button className='btn-close' onClick={closeModal} >Cancelar</button>
+    </>
   )
 }

@@ -33,7 +33,9 @@ form input {
 }
 
 .btn-close {
-  height: 25px;
+  width: 400px;
+  height: 30px;
+  margin: 7px auto;
   background-color: red;
   color: #fff;
   border: none;
